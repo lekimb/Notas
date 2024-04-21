@@ -1,2 +1,2 @@
 # Notas
-<www.mikelbarberoles.netlify.app>
+https://www.mikelbarberoles.netlify.app/notas
