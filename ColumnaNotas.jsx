@@ -35,7 +35,7 @@ export default function ColumnaNotas({
     function handleDelete(id) {
         // Eliminar la nota
         let nextNotas = deleteNota(id);
-        // Asignar nota activa después de borrar la anterior solo si la nota eliminada coincide con la nota seleccionada
+        // Asignar nueva nota activa después de borrar la anterior solo si la nota eliminada coincide con la nota activa actual
         if (notaActiva === id) {
             setNotaActiva(() => {
                 let notaActiva = null;
@@ -51,7 +51,7 @@ export default function ColumnaNotas({
     }
 
     function formatearTexto(text) {
-        return text.split("\n")[0]; // Solo la primera línea
+        return text.split("\n")[0]; // Dejar solo la primera línea
     }
 
     return (

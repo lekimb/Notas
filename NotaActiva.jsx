@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export default function NotaActiva({
     notaActiva,
     setNotas,
@@ -7,21 +5,6 @@ export default function NotaActiva({
     getIndex,
     nuevaNota,
 }) {
-    function handleTituloChange(e) {
-        const titulo = e.target.value;
-        updateNotaTitulo(notaActiva, titulo);
-        setNotas((notas) => {
-            array_move(notas, getIndex(notaActiva), 0);
-        });
-    }
-
-    function handleCuerpoChange(e) {
-        const cuerpo = e.target.value;
-        updateNotaCuerpo(notaActiva, cuerpo);
-        setNotas((notas) => {
-            array_move(notas, getIndex(notaActiva), 0);
-        });
-    }
 
     function updateNotaTitulo(id, titulo) {
         setNotas((notas) => {
@@ -45,6 +28,22 @@ export default function NotaActiva({
         });
     }
 
+    function handleTituloChange(e) {
+        const titulo = e.target.value;
+        updateNotaTitulo(notaActiva, titulo);
+        setNotas((notas) => {
+            array_move(notas, getIndex(notaActiva), 0);
+        });
+    }
+
+    function handleCuerpoChange(e) {
+        const cuerpo = e.target.value;
+        updateNotaCuerpo(notaActiva, cuerpo);
+        setNotas((notas) => {
+            array_move(notas, getIndex(notaActiva), 0);
+        });
+    }
+
     function array_move(arr, old_index, new_index) {
         if (new_index >= arr.length) {
             var k = new_index - arr.length + 1;
@@ -63,8 +62,6 @@ export default function NotaActiva({
                 ? "0" + date.getMinutes()
                 : date.getMinutes();
         const weekday = date.toLocaleString("es", { weekday: "short" });
-        // const dia = date.getDate();
-        // const mes = date.getMonth();
         return weekday + ", " + hora + ":" + minutos;
     }
 
@@ -82,8 +79,6 @@ export default function NotaActiva({
                         onChange={(e) => handleTituloChange(e)}
                     />
                     <textarea
-                        // cols="30"
-                        // rows="10"
                         id="cuerpo"
                         placeholder="Escribe algo..."
                         value={notaActiva ? getNota(notaActiva).cuerpo : ""}

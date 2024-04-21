@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useImmer } from "use-immer";
-import ColumnaNotas from ".ColumnaNotas";
+import ColumnaNotas from "./ColumnaNotas";
 import NotaActiva from "./NotaActiva";
 
 export default function NotasApp() {
@@ -10,7 +10,23 @@ export default function NotasApp() {
             created_at: new Date(),
             updated_at: null,
             titulo: "Lista de la compra",
-            cuerpo: "Leche, manzanas, arroz, tomates, mandarinas",
+            cuerpo: "Leche \nCola-cao \nNachos \nGuacamole \nMandarinas",
+            deleted: false,
+        },
+        {
+            id: crypto.randomUUID(),
+            created_at: new Date(),
+            updated_at: null,
+            titulo: "Dichos populares",
+            cuerpo: "A quien madruga, Dios le ayuda. \nNo por mucho madrugar amanece más temprano. \nMás vale pájaro en mano que ciento volando. ",
+            deleted: false,
+        },
+        {
+            id: crypto.randomUUID(),
+            created_at: new Date(),
+            updated_at: null,
+            titulo: "Libros que quiero",
+            cuerpo: "El señor de los anillos edición coleccionista",
             deleted: false,
         },
     ]);
@@ -28,17 +44,6 @@ export default function NotasApp() {
             }
         }
         return hayNotas;
-    }
-
-    function createNota(titulo, cuerpo) {
-        return {
-            id: crypto.randomUUID(),
-            created_at: new Date(),
-            updated_at: null,
-            titulo: titulo,
-            cuerpo: cuerpo,
-            deleted: false,
-        };
     }
 
     function createNotaVacia() {
@@ -91,21 +96,13 @@ export default function NotasApp() {
         return nextNotas;
     }
 
-    useEffect(() => {
-        console.log("Nota activa: " + notaActiva);
-    }, [notaActiva]);
-
-    useEffect(() => {
-        console.log(notas);
-    }, [notas]);
+    function isNotaVacia(id) {
+        return getNota(id).titulo === "" && getNota(id).cuerpo === "";
+    }    
 
     function nuevaNota() {
         // Si la nota activa está vacía, no agregar una nueva nota
-        if (
-            notaActiva &&
-            getNota(notaActiva).titulo === "" &&
-            getNota(notaActiva).cuerpo === ""
-        ) {
+        if (notaActiva && isNotaVacia(notaActiva)) {
             return;
         }
         const nuevaNota = createNotaVacia();
@@ -117,7 +114,7 @@ export default function NotasApp() {
     }
 
     return (
-        <div class="text-stone-500 tracking-wide font-lexend">
+        <div className="text-stone-500 tracking-wide font-lexend">
             <h1 className="text-center font-bold text-4xl mt-10 mb-5">Notas</h1>
             <div className="max-w-[700px] mx-auto">
                 <button
