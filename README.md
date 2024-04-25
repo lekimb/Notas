@@ -8,7 +8,8 @@ https://mikelbarberoles.netlify.app/notas
 - Un array `notas` para almacenar y ordenar las notas.
 - Un string `notaActiva` para almacenar una referencia al id de la nota activa.
 
-Cada nota es un objeto con los siguientes atributos: 
+Cada `nota` es un objeto con los siguientes atributos: 
+- id
 - created_at
 - updated_at
 - titulo
