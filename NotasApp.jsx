@@ -110,7 +110,7 @@ export default function NotasApp() {
         setNotaActiva(nuevaNota.id);
         setTimeout(() => {
             document.getElementById("titulo").focus(); // Poner el focus en el input del título
-        }, 100); // Sin el timeout da error porque todavía no está el título en el DOM
+        }, 100); // Sin el timeout da error porque todavía no está el elemento título en el DOM
     }
 
     return (
