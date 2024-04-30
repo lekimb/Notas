@@ -55,7 +55,7 @@ export default function ColumnaNotas({
     }
 
     return (
-        <div className="bg-orange-100 w-60 h-[400px] overflow-y-auto scrollbar">
+        <div className="bg-orange-100 w-80 h-[400px] overflow-y-auto scrollbar">
             {notas.map((nota) => {
                 let activa = nota.id === notaActiva;
                 if (!nota.deleted) {
@@ -70,7 +70,7 @@ export default function ColumnaNotas({
                             } border-b border-b-orange-200 flex h-20 `}
                         >
                             {nota.titulo || nota.cuerpo ? (
-                                <div className="w-[200px] pl-4 py-4 text-sm">
+                                <div className="grow min-w-0 pl-4 pr-2 py-4 text-sm">
                                     <h2 className="font-bold truncate">
                                         {formatearTexto(nota.titulo)}
                                     </h2>
@@ -83,7 +83,7 @@ export default function ColumnaNotas({
                                     </p>
                                 </div>
                             ) : (
-                                <div className="w-[200px] flex items-center pl-5 text-sm text-orange-400">
+                                <div className="grow min-w-0 flex items-center pl-5 text-sm text-orange-400">
                                     <p>Nota vacía</p>
                                 </div>
                             )}
@@ -92,7 +92,6 @@ export default function ColumnaNotas({
                                 className=" shrink-0 self-stretch flex items-center justify-center w-10 text-lg hover:cursor-pointer hover:bg-orange-300"
                                 onClick={() => handleDelete(nota.id)}
                             >
-                                {" "}
                                 <MdDeleteOutline id="delete-icon" />
                             </div>
                         </div>

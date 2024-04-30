@@ -33,5 +33,6 @@ Cada `nota` es un objeto con los siguientes atributos:
 - En caso de que la nota eliminada fuera la nota activa, cambiar el valor de la nota activa según corresponda
 
 ### onChange título y cuerpo, en NotaActiva
+- Mover nota activa a la primera posición del array notas
 - Actualizar el título o el cuerpo de la nota activa
 - Actualizar valor updated_at de la nota activa

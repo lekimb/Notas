@@ -116,7 +116,7 @@ export default function NotasApp() {
     return (
         <div className="text-stone-500 tracking-wide font-lexend">
             <h1 className="text-center font-bold text-4xl mt-10 mb-5">Notas</h1>
-            <div className="max-w-[700px] mx-auto">
+            <div className="px-5 max-w-4xl mx-auto">
                 <button
                     onClick={nuevaNota}
                     className="p-2 border-orange-100 border-2 rounded-md mb-2 text hover:bg-orange-50"

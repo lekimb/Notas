@@ -86,7 +86,7 @@ export default function NotaActiva({
                         className="mt-3 mb-2 block w-full bg-transparent grow focus:outline-none resize-none text-sm tracking-wide leading-relaxed"
                         onChange={(e) => handleCuerpoChange(e)}
                     />
-                    <div className="flex justify-between text-xs py-2 border-t font-light">
+                    <div className="sm:flex hidden justify-between text-xs py-2 border-t font-light">
                         <div>
                             Creada:{" "}
                             {notaActiva
