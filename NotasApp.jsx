@@ -10,7 +10,7 @@ export default function NotasApp() {
             created_at: new Date(),
             updated_at: null,
             titulo: "Lista de la compra",
-            cuerpo: "Leche \nCola-cao \nNachos \nGuacamole \nMandarinas",
+            cuerpo: "Leche \nGalletas \nMandarinas ",
             deleted: false,
         },
         {
@@ -25,8 +25,8 @@ export default function NotasApp() {
             id: crypto.randomUUID(),
             created_at: new Date(),
             updated_at: null,
-            titulo: "Libros que quiero",
-            cuerpo: "El señor de los anillos edición coleccionista",
+            titulo: "Afinación guitalele",
+            cuerpo: "A D G C E A",
             deleted: false,
         },
     ]);
@@ -98,7 +98,7 @@ export default function NotasApp() {
 
     function isNotaVacia(id) {
         return getNota(id).titulo === "" && getNota(id).cuerpo === "";
-    }    
+    }
 
     function nuevaNota() {
         // Si la nota activa está vacía, no agregar una nueva nota

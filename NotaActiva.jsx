@@ -5,7 +5,6 @@ export default function NotaActiva({
     getIndex,
     nuevaNota,
 }) {
-
     function updateNotaTitulo(id, titulo) {
         setNotas((notas) => {
             notas.forEach((nota) => {
@@ -88,9 +87,8 @@ export default function NotaActiva({
                     />
                     <div className="sm:flex hidden justify-between text-xs py-2 border-t font-light">
                         <div>
-                            Creada:{" "}
                             {notaActiva
-                                ? formatDate(getNota(notaActiva).created_at)
+                                ? "Creada: " + formatDate(getNota(notaActiva).created_at)
                                 : ""}
                         </div>
                         <div>

@@ -7,20 +7,18 @@ export default function ColumnaNotas({
     deleteNota,
 }) {
     function handleClick(e, id) {
-        if (e.target.id === "delete" || e.target.id === "delete-icon") {
-            return;
-        }
-        if (id === notaActiva) {
-            return;
-        }
+        if (e.target.id === "delete" || e.target.id === "delete-icon") return;
+        if (id === notaActiva) return;
+        
         setNotaActiva(id);
         eliminarNotasVacias();
         document.getElementById("cuerpo").focus(); // Poner focus en el cuerpo de la nota
     }
 
     function eliminarNotasVacias() {
-        let nextNotas;
+        console.log("Llamada a eliminar notas vacías")
         for (let i = 0; i < notas.length; i++) {
+            let nextNotas;
             if (
                 notas[i].titulo === "" &&
                 notas[i].cuerpo === "" &&
@@ -28,8 +26,9 @@ export default function ColumnaNotas({
             ) {
                 nextNotas = deleteNota(notas[i].id);
             }
+            console.log(`nextNotas: ${nextNotas}`);
         }
-        console.log("Eliminar notas vacías", nextNotas);
+        
     }
 
     function handleDelete(id) {
@@ -55,7 +54,7 @@ export default function ColumnaNotas({
     }
 
     return (
-        <div className="bg-orange-100 w-80 h-[400px] overflow-y-auto scrollbar">
+        <div className="bg-orange-100 w-72 h-[400px] overflow-y-auto scrollbar">
             {notas.map((nota) => {
                 let activa = nota.id === notaActiva;
                 if (!nota.deleted) {
@@ -89,7 +88,7 @@ export default function ColumnaNotas({
                             )}
                             <div
                                 id="delete"
-                                className=" shrink-0 self-stretch flex items-center justify-center w-10 text-lg hover:cursor-pointer hover:bg-orange-300"
+                                className="shrink-0 self-stretch flex items-center justify-center w-10 text-lg hover:cursor-pointer hover:bg-orange-300/80 transition-colors"
                                 onClick={() => handleDelete(nota.id)}
                             >
                                 <MdDeleteOutline id="delete-icon" />
